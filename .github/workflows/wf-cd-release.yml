@@ -22,7 +22,7 @@ jobs:
 
   wf-cd-release-deploy-job:
     needs: wf-cd-release-build-jobs
-    environment: "stage-env"
+    environment: "staging-env"
     permissions:
       pages: write
       id-token: write
