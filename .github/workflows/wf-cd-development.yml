@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Build Artifacts
         run: |
-          npx parcel build "./src/index.html" --dict-dir "./dist" --public-url "./"
+          npx parcel build "./src/index.html" --dist-dir "./dist" --public-url "./"
       - name: Upload Development Artifacts
         uses: actions/upload-pages-artifact@v3
         with: 
