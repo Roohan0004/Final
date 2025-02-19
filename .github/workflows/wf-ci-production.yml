@@ -1,0 +1,21 @@
+name: wf-ci-production
+on:
+  push:
+    branches:
+      - production
+jobs:
+  wf-ci-build-production-jobs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: ${{github.ref}}
+      - name: Lint HTML and CSS files
+        run: |
+          npx htmlhint "**/*.html"
+          npx stylelint "**/*.css"
+      - name: Build Website
+        run: |
+          npx parcel build "./src/index.html" --dist-dir "./dist"
+        
